@@ -1,4 +1,4 @@
-package com.jaswanth.tickectplatform.domain;
+package com.jaswanth.tickectplatform.domain.entities;
 
 import jakarta.persistence.*;
 import lombok.*;

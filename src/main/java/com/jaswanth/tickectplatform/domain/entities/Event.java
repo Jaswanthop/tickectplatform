@@ -1,4 +1,4 @@
-package com.jaswanth.tickectplatform.domain;
+package com.jaswanth.tickectplatform.domain.entities;
 
 
 import jakarta.persistence.*;
@@ -41,7 +41,7 @@ public class Event {
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private  EventStatusEnum  status;
+    private EventStatusEnum status;
 
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -55,8 +55,8 @@ public class Event {
     @ManyToMany(mappedBy = "staffingEvents")
     private List<User> staff = new ArrayList<>();
 
-//    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<TicketType> ticketTypes = new ArrayList<>();
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<TicketType> ticketTypes = new ArrayList<>();
 
     @CreatedDate
     @Column(name = "created_at", updatable = false, nullable = false)
